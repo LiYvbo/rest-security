@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>rest-security-app</artifactId>
+	<packaging>jar</packaging>
+    <parent>
+        <groupId>org.liyubo.spring</groupId>
+        <artifactId>rest-security</artifactId>
+        <version>1.0.0</version>
+        <relativePath>../rest-security</relativePath><!--注意：这一句定位到具体的代码位置，不加的话必然会报错的-->
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.liyubo.spring</groupId>
+            <artifactId>rest-security-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
+
+</project>

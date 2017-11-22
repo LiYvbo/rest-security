@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.liyubo.spring</groupId>
+	<artifactId>rest-security</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+
+    <!--定义常用的变量-->
+    <properties>
+        <java.version>1.8</java.version>
+        <project.version>1.0.0</project.version>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <!--引入对spring-platform-io的版本控制总依赖-->
+            <dependency>
+                <groupId>io.spring.platform</groupId>
+                <artifactId>platform-bom</artifactId>
+                <version>Brussels-SR5</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--引入对spring-cloud的核心总依赖-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Dalston.SR4</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <modules>
+        <module>../rest-security-core</module>
+        <module>../rest-security-app</module>
+        <module>../rest-security-browser</module>
+        <module>../rest-security-demo</module>
+    </modules>
+</project>
