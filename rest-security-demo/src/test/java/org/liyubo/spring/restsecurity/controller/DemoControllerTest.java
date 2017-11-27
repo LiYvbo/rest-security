@@ -3,6 +3,8 @@ package org.liyubo.spring.restsecurity.controller;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
@@ -21,6 +23,8 @@ public class DemoControllerTest {
 
     private MockMvc mockMvc;
 
+    Logger logger = LoggerFactory.getLogger(DemoControllerTest.class);
+
     @Before
     public void setup(){
         mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
@@ -28,7 +32,15 @@ public class DemoControllerTest {
 
     @Test
     public void greetingTest() throws Exception {
+        logger.info("start...");
         mockMvc.perform(MockMvcRequestBuilders.get("/rest/hello").contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk());
+    }
+
+    @Test
+    public void getUserTest() throws Exception {
+        logger.info("start...");
+        mockMvc.perform(MockMvcRequestBuilders.get("/rest/user").contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
 }
